@@ -1,0 +1,50 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: prod
+    container_name: quitebite-frontend
+    expose:
+      - 80
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: quitebite-backend
+    expose:
+      - 8000
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=production
+      - FRONTEND_URL=https://quickbite.dedyn.io
+    command: npm run start
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+
+  
+
+  server:
+    build: ./nginx
+    container_name: quickbite-server
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - backend
+      - frontend
+    volumes:
+      - ./nginx/ssl/ssl.crt:/etc/ssl/certs/ssl.crt
+      - ./nginx/ssl/ssl.key:/etc/ssl/private/ssl.key
+

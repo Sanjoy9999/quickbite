@@ -1,0 +1,53 @@
+/* Full-screen centered loader with a subtle backdrop to make it more visible */
+.scooter-loader{
+  --loader-size: 120px; /* default size if not provided inline */
+  --loader-speed: 3.6s; /* default slower speed for better visibility */
+  position: fixed;
+  inset: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: blur(4px) saturate(120%);
+  z-index: 9999;
+}
+
+.scooter-track{
+  display:flex;
+  align-items:center;
+  gap:56px;
+  /* not used for single-image loader */
+}
+
+.scooter-img{
+  width: var(--loader-size);
+  height: auto;
+  display:block;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.38));
+  will-change: transform;
+  transform-origin: center;
+}
+
+@keyframes float-right{
+  0%{ transform: translateX(-6%) scale(0.995); opacity: 0.98 }
+  50%{ transform: translateX(6%) scale(1.02); opacity: 1 }
+  100%{ transform: translateX(-6%) scale(0.995); opacity: 0.98 }
+}
+
+.scooter-loader .scooter-img{
+  animation: float-right var(--loader-speed) cubic-bezier(.22,.9,.26,1) infinite;
+}
+
+/* Make it responsive and smaller in compact contexts */
+@media (max-width:640px){
+  .scooter-img{ width: 72px }
+}
+
+/* Optional: small pulse to draw attention */
+.scooter-img::after{
+  content: '';
+  display: block;
+}
