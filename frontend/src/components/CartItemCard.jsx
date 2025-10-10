@@ -18,24 +18,27 @@ const CartItemCard = ({ data }) => {
   };
 
   return (
-    <div className="flex items-center justify-between bg-white/90 backdrop-blur-sm p-5 rounded-2xl shadow-lg border border-orange-100/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+   <div className="flex items-center justify-between bg-white/90 backdrop-blur-sm p-5 rounded-2xl shadow-lg border border-orange-100/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
       <div className="flex items-center gap-5">
-        <div className="relative">
+        <div className="relative flex-shrink-0">
           <img
             src={data.image}
             alt={data.name}
-            className="w-20 h-20 object-cover rounded-xl border-2 border-orange-200 shadow-md"
+            className="w-16 h-16 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-full object-cover rounded-xl border-2 border-orange-200 shadow-md"
           />
-          <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+          <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center font-bold">
             {data.quantity}
           </div>
         </div>
-        <div className="flex-1">
-          <h1 className="font-semibold text-gray-800 text-lg mb-1">{data.name}</h1>
-          <p className="text-sm text-gray-500 mb-2">
+
+        <div className="flex-1 min-w-0">
+          <h1 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 truncate">
+            {data.name}
+          </h1>
+          <p className="text-sm text-gray-500 mb-1">
             ₹{data.price} × {data.quantity}
           </p>
-          <p className="font-bold text-xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+          <p className="font-bold text-lg sm:text-xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
             ₹{data.price * data.quantity}
           </p>
         </div>
