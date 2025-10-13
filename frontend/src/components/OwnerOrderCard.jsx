@@ -162,8 +162,8 @@ const OwnerOrderCard = ({ data }) => {
               >
                 <div className="relative overflow-hidden h-48">
                   <img
-                    src={item?.item?.image}
-                    alt={item?.item?.name}
+                    src={item?.item?.image || "NA"}
+                    alt={item?.item?.name || "NA"}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
@@ -172,16 +172,16 @@ const OwnerOrderCard = ({ data }) => {
                 </div>
                 <div className="p-4">
                   <p className="text-base font-bold text-gray-800 mb-2 line-clamp-1">
-                    {item?.item?.name}
+                    {item?.item?.name || "NA"}
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">
                       <FaRupeeSign className="inline text-xs" />
-                      {item?.item?.price} × {item.quantity}
+                      {item?.item?.price || "NA"} × {item.quantity}
                     </span>
                     <span className="text-lg font-bold text-orange-600">
                       <FaRupeeSign className="inline text-sm" />
-                      {item?.item?.price * item.quantity}
+                      {item?.item?.price || "NA" * item.quantity}
                     </span>
                   </div>
                 </div>
