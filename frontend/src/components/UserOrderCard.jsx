@@ -139,26 +139,26 @@ const UserOrderCard = ({ data }) => {
                   >
                     <div className="relative overflow-hidden h-32">
                       <img
-                        src={item.item.image}
-                        alt={item.item.name}
+                        src={item?.item?.image}
+                        alt={item?.item?.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
-                        x{item.quantity}
+                        x{item?.quantity}
                       </div>
                     </div>
                     <div className="p-3">
                       <p className="text-sm font-bold text-gray-800 mb-1 line-clamp-1">
-                        {item.item.name}
+                        {item?.item?.name}
                       </p>
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-gray-600">
                           <FaRupeeSign className="inline text-xs" />
-                          {item.item.price} × {item.quantity}
+                          {item?.item?.price} × {item?.quantity}
                         </span>
                         <span className="text-sm font-bold text-orange-600">
                           <FaRupeeSign className="inline text-xs" />
-                          {item.item.price * item.quantity}
+                          {item?.item?.price * item?.quantity}
                         </span>
                       </div>
                       
@@ -166,8 +166,8 @@ const UserOrderCard = ({ data }) => {
                        {shopOrder.status === "delivered" && (
                         <div className="flex space-x-1 mt-2">
                         {[1, 2, 3, 4, 5].map((star,index) => (
-                          <button key={index} className={` cursor-pointer text-2xl ${selectedRating[item.item._id] >= star ? "text-yellow-400":"text-gray-400"}`}
-                          onClick={() => handleRating(item.item._id,star)}
+                          <button key={index} className={` cursor-pointer text-2xl ${selectedRating[item?.item?._id] >= star ? "text-yellow-400":"text-gray-400"}`}
+                          onClick={() => handleRating(item?.item?._id,star)}
                           >☆</button>
                         ))}
                         </div>
