@@ -75,12 +75,12 @@ const TrackOrderPage = () => {
         >
           <div>
             <p className="text-lg font-bold mb-2 text-[#ff4d2d]">
-              Shop Name:-{currentOrder?.shopOrders[0]?.shop.name}
+              Shop Name:-{shopOrder?.shop?.name}
             </p>
             <p className="font-semibold">
               <span>Items:- </span>
-              {currentOrder?.shopOrders[0]?.shopOrderItems
-                ?.map((i) => i.name)
+              {shopOrder?.shopOrderItems
+                ?.map((i) => i?.name)
                 .join(",")}
             </p>
             <p className="font-semibold">
