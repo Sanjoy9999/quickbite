@@ -10,7 +10,7 @@ COPY . .
 # ---------- Stage 2: Build (only for prod) ----------
 FROM base AS builder
 ENV VITE_BACKEND_URL=""
-RUN npm run build
+RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
 # ---------- Dev stage ----------
 FROM base AS dev
