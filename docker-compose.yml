@@ -45,6 +45,6 @@ services:
       - backend
       - frontend
     volumes:
-      - /etc/letsencrypt/live/quickbite.dedyn.io/fullchain.pem:/etc/ssl/certs/fullchain.pem:ro
-      - /etc/letsencrypt/live/quickbite.dedyn.io/privkey.pem:/etc/ssl/private/privkey.pem:ro
+      - /etc/letsencrypt/live/quickbite.dedyn.io/fullchain.pem:/etc/ssl/certs/ssl.crt
+      - /etc/letsencrypt/live/quickbite.dedyn.io/privkey.pem:/etc/ssl/private/ssl.key
 
