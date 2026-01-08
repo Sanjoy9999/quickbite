@@ -45,6 +45,6 @@ services:
       - backend
       - frontend
     volumes:
-      - ./nginx/ssl/ssl.crt:/etc/ssl/certs/ssl.crt
-      - ./nginx/ssl/ssl.key:/etc/ssl/private/ssl.key
+      - /etc/letsencrypt/live/quickbite.dedyn.io/fullchain.pem:/etc/ssl/certs/fullchain.pem:ro
+      - /etc/letsencrypt/live/quickbite.dedyn.io/privkey.pem:/etc/ssl/private/privkey.pem:ro
 
